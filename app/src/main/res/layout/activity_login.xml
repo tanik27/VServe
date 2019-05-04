@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/e25962f29e6c7c576d11b567d9c0b278"
+    tools:context=".UI.LoginActivity">
+    <TextView
+        android:id="@+id/textViewLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textStyle="italic"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimary"
+        android:text="                       Log In Here" />
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="20dp"
+        android:textStyle="italic"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:inputType="phone"
+        android:hint="Enter Your Phone Number"/>
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="20dp"
+        android:textStyle="italic"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:inputType="textPassword"
+        android:hint="Enter Your Password"/>
+
+    <Button
+        android:id="@+id/buttonLogged"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:text="Logged In"
+        android:textColor="@color/Black"
+        android:textSize="20dp"
+        android:textStyle="italic" />
+</LinearLayout>

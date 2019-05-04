@@ -1,6 +1,7 @@
 package com.vserve2019.vserve.UI;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
@@ -62,6 +64,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         user.Email=etxtEmail.getText().toString();
         user.Password=etxtPassword.getText().toString();
         int id=v.getId();
+        //fetchSigninMethodforMail();
         if (id == R.id.buttonRegister){
             user.Name=etxtName.getText().toString();
             user.Phone=etxtPhone.getText().toString();
@@ -133,5 +136,20 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         }
                     }
                 });
+    }
+    void fetchSigninMethodforMail(){
+        auth.fetchSignInMethodsForEmail(etxtEmail.getText().toString())
+                .addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+            @Override
+            public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+                boolean check = task.getResult().getSignInMethods().isEmpty();
+                if (check ){
+                    Toast.makeText(RegistrationActivity.this,"Already Registered",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(RegistrationActivity.this,"Register Here",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 }
